@@ -13,7 +13,7 @@ describe('Cinema', function() {
     cinema = new Cinema ("The cinema")
     film1 = new Film("Jaws", "horror", 1977, 120);
     film2 = new Film("Jaws2", "horror", 1980, 150);
-    film3 = new Film("Babe", "kids", 2000, 120);
+    film3 = new Film("Babe", "kids", 2000, 125);
     cinema.addFilm(film1);
     cinema.addFilm(film2);
     cinema.addFilm(film3);
@@ -44,9 +44,20 @@ describe('Cinema', function() {
     assert.deepStrictEqual(actual, [film1, film2])
   })
 
-  it('should be able to find films by year', function(){
-
-    
+  it('should be able to get films by year', function(){
+    const actual =cinema.getFilmByYear(2000);
+    assert.deepStrictEqual(actual, true);
   })
+
+  it('should be able to get films by min length', function(){
+    const actual =cinema.getFilmByMinLength(121);
+    assert.deepStrictEqual(actual, false);
+  })
+
+  it('should be able to get films total running time', function(){
+    const actual =cinema.getFilmTotalRunningTime();
+    assert.deepStrictEqual(actual, 395);
+  })
+
 
 });

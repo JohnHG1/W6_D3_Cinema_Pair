@@ -26,6 +26,22 @@ const Cinema = function (name, films =[]){
     })
   }
 
+  Cinema.prototype.getFilmByYear = function(year){
+    return this.films.some((film) => {
+      return film.year === year;
+    });
+  }
 
+  Cinema.prototype.getFilmByMinLength = function(length){
+    return this.films.every((film) => {
+      return film.length >= length;
+    });
+  }
+
+  Cinema.prototype.getFilmTotalRunningTime = function(){
+    return this.films.reduce((total, film) => {
+      return total += film.length;
+    },0);
+  }
 
 module.exports = Cinema;

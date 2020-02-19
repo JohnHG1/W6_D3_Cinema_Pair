@@ -1,4 +1,4 @@
-const Cinema = function (name, films =[])
+const Cinema = function (name, films =[]){
 
   this.name = name;
   this.films = films;
